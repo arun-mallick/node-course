@@ -6,19 +6,21 @@ app.set('view engine','hbs');
 
 app.use((req,res,next) => {
     res.render('home.hbs');
+    next();
 });
 app.get('/',(req,res) => {
     res.send("send");
 })
-app.get('/bad',(req,res) => {
-    res.send({
-        "erroMssg":"Bad Request"
+app.get('/home',(req,res) => {
+    res.render('home.hbs',{
+        "pageTitle":"Home",
+        "currentYear":new Date().getFullYear()
     });
 
 });
-app.get('/welcome',(req,res) => {
-    res.render('home.hbs',{
-        "pageTitle":"Bad Request",
+app.get('/help',(req,res) => {
+    res.render('help.hbs',{
+        "pageTitle":"Help",
         "currentYear":new Date().getFullYear()
     });
 
