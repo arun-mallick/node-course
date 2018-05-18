@@ -1,4 +1,5 @@
 const express = require('express');
+const port = process.env.PORT || '3000';
 var app = express();
 app.use(express.static(__dirname+'/public'));
 app.set('view engine','hbs');
@@ -22,4 +23,4 @@ app.get('/welcome',(req,res) => {
     });
 
 })
-app.listen(3000);
+app.listen(port);
